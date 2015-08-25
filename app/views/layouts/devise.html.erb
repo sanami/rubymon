@@ -1,0 +1,11 @@
+<%= render layout: 'layouts/default' do %>
+  <div class="panel panel-default" id="devise-panel">
+    <div class="panel-heading">
+      <div class="panel-title text-center"><%= yield :panel_title %></div>
+    </div>
+
+    <div class="panel-body">
+      <%= yield %>
+    </div>
+  </div>
+<% end %>

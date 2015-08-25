@@ -1,0 +1,11 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Flash messages
+.alert-flash-notice {
+  @extend .alert-info;
+}
+
+.alert-flash-alert {
+  @extend .alert-danger;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <% set_page_title %>
+  <title><%= page_title app_name: 'Rubymon', separator: ' - ' %></title>
+
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <%= content_for :head %>
+</head>
+<body class="<%= body_class %>">
+
+<%= render 'layouts/header' %>
+
+<div id="content" class="<%= local_assigns[:container_class] || 'container' %>">
+  <%= render 'layouts/messages' %>
+
+  <%= yield %>
+</div>
+
+<%= render 'layouts/footer' %>
+</body>
+</html>

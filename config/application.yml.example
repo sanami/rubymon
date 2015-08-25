@@ -1,0 +1,34 @@
+# Add application configuration variables here, as shown below.
+#
+external: &external
+  SMTP_ADDRESS: "smtp.mailgun.org"
+  SMTP_PORT: "587"
+  SMTP_USER_NAME: ""
+  SMTP_PASSWORD: ""
+  SMTP_DOMAIN: ""
+  SMTP_AUTHENTICATION: "plain"
+  SMTP_ENABLE_STARTTLS_AUTO: "false"
+  FACEBOOK_KEY: "331209290270945"
+  FACEBOOK_SECRET: "6b6fe2721be3f4af6038223e33682657"
+
+defaults: &defaults
+  <<: *external
+  ACTION_MAILER_PROTOCOL: "http"
+  ACTION_MAILER_HOST: "localhost"
+  USER_MAILER_FROM: "rubymon@localhost"
+  DEVISE_SECRET_KEY: ""
+  DEVISE_PEPPER: ""
+
+development:
+  <<: *defaults
+  ACTION_MAILER_PORT: "3000"
+  ACTION_MAILER_DELIVERY_METHOD: "letter_opener"
+
+test:
+  <<: *defaults
+  ACTION_MAILER_DELIVERY_METHOD: "test"
+
+production:
+  <<: *defaults
+  SECRET_KEY_BASE: ""
+  ACTION_MAILER_DELIVERY_METHOD: "smtp"
