@@ -1,0 +1,17 @@
+<%= simple_form_for @team do |f| %>
+  <%= f.error_notification %>
+
+  <% if @team.errors.include?(:base) %>
+    <div class="alert alert-danger" role="alert">
+      <%= @team.errors.full_messages_for(:base) %>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :team_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

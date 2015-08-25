@@ -1,0 +1,17 @@
+<p>
+  <strong>Monster type:</strong>
+  <%= @monster.monster_type.type_name %>
+</p>
+
+<p>
+  <strong>Monster name:</strong>
+  <%= @monster.monster_name %>
+</p>
+
+<p>
+  <strong>Monster power:</strong>
+  <%= @monster.monster_power %>
+</p>
+
+<%= link_to 'Edit', edit_monster_path(@monster) %> |
+<%= link_to 'Back', monsters_path %>

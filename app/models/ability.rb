@@ -30,6 +30,9 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     if user
+      can :manage, Monster, user_id: user.id
+
+      can :manage, Team, user_id: user.id
     end
 
     can [:welcome, :show], :dashboard

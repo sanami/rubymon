@@ -1,0 +1,20 @@
+<%= simple_form_for @monster do |f| %>
+  <%= f.error_notification %>
+
+  <% if @monster.errors.include?(:base) %>
+    <div class="alert alert-danger" role="alert">
+      <%= @monster.errors.full_messages_for(:base) %>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.association :team, label_method: :team_name, collection: current_user.teams %>
+    <%= f.association :monster_type, label_method: :type_name %>
+    <%= f.input :monster_name %>
+    <%= f.input :monster_power %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

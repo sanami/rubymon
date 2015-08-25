@@ -18,7 +18,7 @@ class Monster < ActiveRecord::Base
         errors[:team] << 'must belong to user'
       end
 
-      if team.monsters.count >= 3
+      if team_id_changed? && team.monsters.count >= 3
         errors[:base] << 'Monsters per Team limit exceeded'
       end
     end
