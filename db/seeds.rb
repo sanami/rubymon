@@ -8,17 +8,8 @@
 
 ActiveRecord::Base.transaction do
 
-  if ENV['DB_SEED_DATA'] =~ /true|on/i
-    puts 'Seeding test data'
-
-    (1..7).each do |i|
-      User.create email: "user#{i}@example.com" do |user|
-        user.full_name = FFaker::Name.name
-        user.password = '12345678'
-        user.skip_confirmation!
-      end
-    end
-
+  %w(fire water earth electric wind).each.with_index do |name, i|
+    MonsterType.create type_name: name, type_weakness: i+1
   end
 
 end

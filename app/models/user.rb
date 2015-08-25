@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   # Relations
   has_many :authentications, dependent: :destroy
+  has_many :teams, dependent: :destroy
+  has_many :monsters, dependent: :destroy
 
   # Include devise modules. Others available are: :confirmable, :lockable, :registerable, :timeoutable
   devise :database_authenticatable,
@@ -13,7 +15,7 @@ class User < ActiveRecord::Base
   scope :by_email, ->(email) { where(email: email.try(:strip).try(:downcase)) } # Devise downcase email
 
   # Fields
-  normalize_attribute :full_name, with: [:squish, :blank]
+  normalize_attribute :full_name
 
   # Validations
   validates :full_name, presence: true
