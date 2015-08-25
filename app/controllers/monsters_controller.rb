@@ -7,7 +7,7 @@ class MonstersController < ApplicationController
   respond_to :html, :json
 
   def index
-    @monsters = current_user.monsters
+    @monsters = Monster.filter(current_user, params)
     respond_with(@monsters)
   end
 

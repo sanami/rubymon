@@ -4,9 +4,9 @@
   <thead>
     <tr>
       <th>Team</th>
-      <th>Monster type</th>
-      <th>Monster name</th>
-      <th>Monster power</th>
+      <th><%= link_to 'Weakness', monsters_path(sort: 'weakness') %></th>
+      <th><%= link_to 'Name', monsters_path(sort: 'name') %></th>
+      <th><%= link_to 'Power', monsters_path(sort: 'power') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
     <% @monsters.each do |monster| %>
       <tr>
         <td><%= monster.team.try :team_name %></td>
-        <td><%= monster.monster_type.type_name %></td>
+        <td><%= monster.monster_type.type_weakness %> <%= monster.monster_type.type_name %></td>
         <td><%= monster.monster_name %></td>
         <td><%= monster.monster_power %></td>
         <td><%= link_to 'Show', monster %></td>

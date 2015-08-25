@@ -29,4 +29,20 @@ class Monster < ActiveRecord::Base
       errors[:base] << 'Monsters per User limit exceeded'
     end
   end
+
+  # Sorting
+  def self.filter(user, params)
+    monsters = user.monsters
+
+    case params[:sort]
+      when 'name'
+        monsters = monsters.order('monster_name ASC')
+      when 'power'
+        monsters = monsters.order('monster_power ASC')
+      when 'weakness'
+        monsters = monsters.joins(:monster_type).order('monster_types.type_weakness ASC')
+    end
+
+    monsters
+  end
 end

@@ -9,7 +9,7 @@ gem 'unicorn', group: :production
 gem 'figaro'
 
 # data
-gem 'pg', group: :production
+gem 'pg'
 gem 'sqlite3', group: [:development, :test]
 gem 'simple_enum', '~> 2.0'
 gem 'attribute_normalizer'
